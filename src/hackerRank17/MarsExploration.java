@@ -5,13 +5,16 @@
  */
 package hackerRank17;
 
-/**
- *
- * @author patry
- */
+import java.util.Scanner;
+
+
 public class MarsExploration {
     public static void main(String[] args) {
-        System.out.println(getLetterChanges("SOSSPSSQSSOR"));
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        if (checkConstr(S)) {
+            System.out.println(getLetterChanges2(S));
+        }
     }
     
     public static int getLetterChanges(String str){
@@ -23,7 +26,7 @@ public class MarsExploration {
         char char1 = "O".charAt(0);
         for (int i = 0; i < sosNum; i++) {
             String sosStr = str.substring(sBeg,sEnd);
-            System.out.println(sosStr);
+            //System.out.println(sosStr);
             if (sosStr.charAt(0) != char03) {
                 missLettCount ++;
             }
@@ -39,5 +42,32 @@ public class MarsExploration {
         return missLettCount;
     }
     
+    public static int getLetterChanges2(String str){
+        String sos = "SOS";
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != sos.charAt(i%3)) {
+                count++;
+            }
+        }
+        return count;
+    }
     
+    public static boolean checkConstr(String str){
+        boolean chk = false;
+        if ((str.length()>=1)&&(str.length()<=99)) {
+            if (str.length()%3 == 0) {
+                for (int i = 0; i < str.length(); i++) {
+                    if (Character.isUpperCase(str.charAt(i))) {
+                        chk = true;
+                    }
+                    else{
+                        chk = false;
+                        break;
+                    }
+                }
+            }
+        }
+        return chk;
+    }
 }
