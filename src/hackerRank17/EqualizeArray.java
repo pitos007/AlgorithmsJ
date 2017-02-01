@@ -6,15 +6,11 @@
 package hackerRank17;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author patry
- */
+
 public class EqualizeArray {
     public static void main(String[] args) {
         List<Integer> intList = new ArrayList<>();
@@ -25,8 +21,14 @@ public class EqualizeArray {
                 intList.add(in.nextInt());
             }
         }
+        else{
+            in.close();
+        }
         if (checkList(intList)) {
             System.out.println(getMaxOccur(intList));
+        }
+        else{
+            in.close();
         }
         
         //List<Integer> intList = Arrays.asList(3,3,2,7,2,1,6,7,8,3);
@@ -41,19 +43,25 @@ public class EqualizeArray {
         for (int i = 0; i < sil.size()-1; i++) {
             if (sil.get(i+1) == sil.get(i)) {
                 currentCount++;
-                System.out.println(sil.get(i+1) +" == "+ sil.get(i) + " increasing to " + currentCount);
+                //System.out.println(sil.get(i+1) +" == "+ sil.get(i) + " increasing currentCount to " + currentCount);
+                maxCount = currentCount;
             }
             else{
                 if (currentCount > maxCount) {
+                    //System.out.println(currentCount + " > " + maxCount);
                     maxCount = currentCount;
                     currentCount = 1;
+                    //System.out.println(" maxCount increased to " + maxCount + ". Reset currentCount to 1");
                 }
                 else{
                     currentCount = 1;
+                    //System.out.println(currentCount + " <= " + maxCount);
+                    //System.out.println("Reset currentCount to 1");
                 }
             }
         }
-        return maxCount;
+        //System.out.println(intList.size() + " - " + maxCount);
+        return intList.size() - maxCount;
     }
     
     public static List<Integer> getList(int inputNum){
@@ -66,9 +74,12 @@ public class EqualizeArray {
     }
     
     public static boolean checkInput(int n){
-        boolean chk = true;
-        if (!(n>=1)&&!(n<=100)) {
-            chk = false;
+        boolean chk = false;
+        if ((n>=1)&&(n<=100)) {
+            chk = true;
+        }
+        else{
+            //System.out.println(n + " is too large or too small");
         }
         return chk;
     }
@@ -76,7 +87,8 @@ public class EqualizeArray {
     public static boolean checkList(List<Integer> intList){
         boolean chk = true;
             for (Integer i : intList) {
-                if (!(i>=1)&&!(i<=100)) {
+                if (!(i>=1)||!(i<=100)) {
+                    //System.out.println(i + " is too large or too small");
                     chk = false;
                     break;
                 }
