@@ -8,7 +8,9 @@ package cheatSheet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -18,12 +20,9 @@ public class Constrain {
     public static void main(String[] args) {
         int n = 105;
         List<Integer> intList = Arrays.asList(1,-2,3,4,105,5,6,7,8,9);
-        Integer[] intArr = {41,22,80,80,41,41,41,80,22,80,22,41,41,41,80,80,22,22,22,22,41,80,80,41,22,80,80,80,80,41,22,80,22,22,22,80,22,80,80,41,22,41,41,22,22,41,22,22,80,22,22,80,41};
-        List<Integer> intList2 = Arrays.asList(intArr);
         
-        System.out.println(getMaxOccur(intList2));
-        //chk(n);
-        //chkLoop(intList);
+        chk(n);
+        chkLoop(intList);
     }
     
     public static boolean chk(int n){
@@ -51,44 +50,5 @@ public class Constrain {
             }
         }
         return chk;
-    }
-
-    public static int getMaxOccur(List<Integer> intList){
-        int maxCount = 0;
-        int currentCount = 1;
-        List<Integer> sil = intList;
-        Collections.sort(sil);
-        for (int i = 0; i < sil.size()-1; i++) {
-            if (sil.get(i+1) == sil.get(i)) {
-                currentCount++;
-                System.out.println(sil.get(i+1) +" == "+ sil.get(i) + " increasing currentCount to " + currentCount);
-                if (currentCount > maxCount) {
-                    maxCount = currentCount;
-                }
-                System.out.println("maxCount is " + maxCount);
-            }
-            else{
-                if (currentCount > maxCount) {
-                    System.out.println(currentCount + " > " + maxCount);
-                    maxCount = currentCount;
-                    currentCount = 1;
-                    System.out.println(" maxCount increased to " + maxCount + ". Reset currentCount to 1");
-                }
-                else{
-                    System.out.println(currentCount + " <= " + maxCount + " Reset currentCount to 1");
-                    currentCount = 1;
-                }
-            }
-        }
-        System.out.println(intList.size() + " - " + maxCount);
-        return intList.size() - maxCount;
-    }
-    
-    
-    public static int getMaxOccur2(List<Integer> intList){
-        int maxCount = 1;
-        List<Integer> sil = intList;
-        
-        return maxCount;
     }
 }
