@@ -38,8 +38,8 @@ public class EqualizeArray {
         //List<Integer> intList = Arrays.asList(3,3,2,7,2,1,6,7,8,3);
         List<Integer> intList0 = Arrays.asList(41, 22, 80, 80, 41, 41, 41, 80, 22, 80, 22, 41, 41, 41, 80, 80, 22, 22, 22, 22, 41, 80, 80, 41, 22, 80, 80, 80, 80, 41, 22, 80, 22, 22, 22, 80, 22, 80, 80, 41, 22, 41, 41, 22, 22, 41, 22, 22, 80, 22, 22, 80, 41);
 
-        //getMaxOccur2(intList0);
-        getMaxOccur(intList0);
+        getMaxOccur2(intList0);
+        //getMaxOccur(intList0);
 
     }
 
@@ -67,7 +67,7 @@ public class EqualizeArray {
                 }
             }
         }
-        //System.out.println(intList.size() + " - " + maxCount);
+        System.out.println(intList.size() + " - " + maxCount);
         int sol = intList.size() - maxCount;
 
         long endTime = System.nanoTime();
@@ -92,6 +92,7 @@ public class EqualizeArray {
             }
         }
         int sol = intList.size() - maxCount;
+        System.out.println(sol);
 
         long endTime = System.nanoTime();
         System.out.println("HashMap method: " + (endTime - startTime));
