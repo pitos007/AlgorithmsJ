@@ -22,20 +22,18 @@ public class RepeatedString {
     }
     
     public static long getV(String str, long n){
-        char c = 'a';
         long charCount = 0;
-        long sol = 0;
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i)==c) {
+            if (str.charAt(i)=='a') {
                 charCount++;
             }
         }
         long d = n / str.length();
         long r = n % str.length();
-        sol = charCount * d;
+        long sol = charCount * d;
         
         for (int i = 0; i < r; i++) {
-            if (str.charAt(i)==c) {
+            if (str.charAt(i)=='a') {
                 sol++;
             }
         }
