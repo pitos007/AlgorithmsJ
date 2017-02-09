@@ -28,7 +28,7 @@ public class Constrain {
     public static boolean chk(int n){
         boolean chk = false;
         if ((n>=1)&&(n<=100)) {
-            System.out.println(n + " within a large");
+            System.out.println(n + " within a range");
             chk = true;
         }
         else{
