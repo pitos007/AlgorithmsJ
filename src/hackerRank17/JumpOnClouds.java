@@ -35,9 +35,9 @@ public class JumpOnClouds {
     public static void joc(int[] cl){
         int i = 0;
         int count = 0;
-        while (i <= cl.length) {
+        while (i <= cl.length) { // while the pointer is not outside of the list (1,2,3,4,5,x)
             System.out.println(i + " <= " + cl.length);
-            if (i < cl.length-2) {
+            if (i < cl.length-2) { // if the pointer is less than the last -1 item in the list (1,2,3,x,5)
                 System.out.println(i + " < " + (cl.length-2));
                 if (cl[i+2] == 1) {
                     i++;
@@ -51,12 +51,12 @@ public class JumpOnClouds {
                     
                 }
             }
-            else if (i == cl.length-2){
+            else if (i == cl.length-2){ // if the pointer is at last -1 item in the list (1,2,3,x,5)
                 System.out.println(i + " == " +(cl.length-2));
                 count++;
                 break;
             }
-            else{ // i == cl.length-1
+            else{ // the pointer is at the last item in the list (1,2,3,4,x)
                 break;
             }
             
@@ -67,8 +67,8 @@ public class JumpOnClouds {
     public static void joc2(int[] cl){
         int i = 0;
         int count = 0;
-        while (i < cl.length-1) {
-            if (((i + 2) > cl.length-1) || (cl[i + 2] == 1)) {
+        while (i < cl.length-1) { // while the pointer is less than the last item in the list (1,2,3,4,x)
+            if (((i + 2) > cl.length-1) || (cl[i + 2] == 1)) { // if the pointer +2 is outside the list or equlas 1
                 i++;
                 count++;
             }
